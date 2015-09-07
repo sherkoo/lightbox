@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <style>
+      .lightbox-cover{
+        background-color: rgba(0,0,0,0.75);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+          display: -webkit-flex;
+        align-items: center;
+          -webkit-align-items: center;
+        justify-content: center;
+          -webkit-justify-content: center;
+      }
+
+      .lightbox-enable img{
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      $(document).ready(function(){
+
+        $('.lightbox-cover').hide();
+
+        $('.lightbox-enable img').click(function(e){
+          
+          e.preventDefault();
+
+          var image_href = $(this).attr("src");
+
+          $('.lightbox-cover').fadeIn(500);
+
+          $('.lightbox-img').html('<img src="' + image_href + '" />');
+        });
+
+        $('.lightbox-cover').click(function(){
+          $(this).fadeOut(300);
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+    <div class="lightbox-cover">
+      <div class="lightbox-img"></div>
+    </div> <!-- /.lightbox-cover -->
+    
+    <div class="article lightbox-enable">
+
+      <img src="http://placehold.it/300x300" alt="">
+
+      <br>
+
+      <img src="http://placehold.it/310x320" alt="">
+    </div> <!-- /.lightbox-enable -->
+
+  </body>
+</html>
